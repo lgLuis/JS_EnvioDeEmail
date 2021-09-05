@@ -1,5 +1,9 @@
 //VARIABLES
 const btnEnviar = document.querySelector('#enviar');
+const formulario = document.querySelector('#enviar-mail');
+
+
+
 //VARIABLES PARA CAMPOS
 const email = document.querySelector('#email');
 const asunto = document.querySelector('#asunto');
@@ -33,5 +37,19 @@ function validarFormulario(e){
         console.log('Oki doki')
     } else{
         e.target.classList.add('border', 'border-red-500');
+        mostrarError();
     }
+}
+
+function mostrarError(){
+    const mensajeError = document.createElement('p');
+    mensajeError.textContent='Todos los campos son obligatorios';
+    mensajeError.classList.add('border', 'border-red-500', 'background-color-100', 'text-red-500', 'p-3', 'uppercase', 'text-center', 'mt-2', 'error');
+
+    const errores = document.querySelectorAll('.error');
+    if(errores.length===0){
+        formulario.appendChild(mensajeError);
+    }
+    
+    
 }
